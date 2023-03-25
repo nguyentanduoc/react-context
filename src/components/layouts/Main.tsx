@@ -13,21 +13,29 @@ const contentStyle: React.CSSProperties = {
 
 interface MainProps {
   children?: React.ReactNode;
+  theme: string;
 }
-const Main = ({}: MainProps) => {
+const Main = ({ theme }: MainProps) => {
   const items = [{ id: 1 }, { id: 1 }, { id: 1 }, { id: 1 }, { id: 1 }];
   return (
     <Content style={contentStyle}>
-      <Search></Search>
-      <div style={{ overflow: "auto", paddingTop: 10 }}>
-        <Row style={{ height: "100%" }}>
+      <Search theme={theme}></Search>
+      <Layout
+        style={{
+          paddingTop: 10,
+          height: "85%",
+          overflowY: "auto",
+          overflowX: "hidden",
+        }}
+      >
+        <Row gutter={10}>
           {items.map((i, index) => (
-            <Col xs={1} sm={2} md={3} lg={4} xl={4} key={index}>
-              <Item />
+            <Col xl={4} key={index}>
+              <Item theme={theme} />
             </Col>
           ))}
         </Row>
-      </div>
+      </Layout>
     </Content>
   );
 };

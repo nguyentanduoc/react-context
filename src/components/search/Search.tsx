@@ -1,9 +1,13 @@
 import { Button, Card, Form, Input } from "antd";
 import { useEffect, useState } from "react";
 
-interface SearchProps {}
+interface SearchProps {
+  theme: string;
+}
 
-const Search = ({}: SearchProps) => {
+// #00ABBD
+//#E6DFD9
+const Search = ({ theme }: SearchProps) => {
   const [form] = Form.useForm();
   const [, forceUpdate] = useState({});
 
@@ -15,8 +19,9 @@ const Search = ({}: SearchProps) => {
   const onFinish = (values: any) => {
     console.log("Finish:", values);
   };
+  const backgroundColor = theme === "theme1" ? "#00ABBD" : "#E6DFD9";
   return (
-    <Card style={{ margin: 0, padding: 0, backgroundColor: "#1034a6" }}>
+    <Card style={{ margin: 0, padding: 0, backgroundColor }}>
       <Form
         form={form}
         name="horizontal_login"

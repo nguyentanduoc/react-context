@@ -4,12 +4,17 @@ const { Footer: AntFooter } = Layout;
 
 const footerStyle: React.CSSProperties = {
   textAlign: "center",
-  color: "#fff",
-  backgroundColor: "#7dbcea",
 };
-interface FooterProps {}
-const Footer = ({}: FooterProps) => {
-  return <AntFooter style={footerStyle}>Footer</AntFooter>;
+//#A1C7E0
+//#BCC5CE
+interface FooterProps {
+  theme: string;
+}
+const Footer = ({ theme }: FooterProps) => {
+  const backgroundColor = theme === "theme1" ? "#BCC5CE" : "#A1C7E0";
+  return (
+    <AntFooter style={{ ...footerStyle, backgroundColor }}>Footer</AntFooter>
+  );
 };
 
 export default Footer;

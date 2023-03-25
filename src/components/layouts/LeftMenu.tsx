@@ -4,12 +4,15 @@ const { Sider } = Layout;
 const siderStyle: React.CSSProperties = {
   textAlign: "center",
   lineHeight: "120px",
-  color: "#fff",
-  backgroundColor: "#3ba0e9",
 };
-interface LeftMenuProps {}
-const LeftMenu = ({}: LeftMenuProps) => {
-  return <Sider style={siderStyle}>LeftMenu</Sider>;
+// #00ABBD
+// #729599
+interface LeftMenuProps {
+  theme: string;
+}
+const LeftMenu = ({ theme }: LeftMenuProps) => {
+  const backgroundColor = theme === "theme1" ? "#729599" : "#00ABBD";
+  return <Sider style={{ ...siderStyle, backgroundColor }}>LeftMenu</Sider>;
 };
 
 export default LeftMenu;
