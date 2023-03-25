@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Layout } from "antd";
+import styled from "styled-components";
+import Footer from "./components/layouts/Footer";
+import Header from "./components/layouts/Header";
+import LeftMenu from "./components/layouts/LeftMenu";
+import Main from "./components/layouts/Main";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LayoutStyled>
+      <Header></Header>
+      <Layout>
+        <LeftMenu></LeftMenu>
+        <Main></Main>
+      </Layout>
+      <Footer></Footer>
+    </LayoutStyled>
   );
 }
+
+const LayoutStyled = styled(Layout)`
+  height: 100vh;
+`;
 
 export default App;
