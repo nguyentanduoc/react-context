@@ -1,13 +1,14 @@
 import { Card } from "antd";
+import { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 const { Meta } = Card;
 
-interface ItemProps {
-  theme: string;
-}
+interface ItemProps {}
 
 //#0099DD
 //#7A7067
-const Item = ({ theme }: ItemProps) => {
+const Item = ({}: ItemProps) => {
+  const { theme } = useContext(ThemeContext);
   const border = theme === "theme1" ? "#7A7067" : "#0099DD";
   return (
     <Card

@@ -1,4 +1,6 @@
 import { Form, Layout, Select } from "antd";
+import { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 
 const { Header: AntHeader } = Layout;
 const { Option } = Select;
@@ -11,14 +13,13 @@ const headerStyle: React.CSSProperties = {
 };
 //#A1C7E0
 // #BCC5CE
-interface HeaderProps {
-  theme: string;
-  onChangeTheme: React.Dispatch<React.SetStateAction<string>>;
-}
-const Header = ({ theme, onChangeTheme }: HeaderProps) => {
+interface HeaderProps {}
+const Header = ({}: HeaderProps) => {
+  const { theme, setTheme } = useContext(ThemeContext);
+
   const backgroundColor = theme === "theme1" ? "#BCC5CE" : "#A1C7E0";
   const handleOnChange = (value: string) => {
-    onChangeTheme(value);
+    setTheme?.(value);
   };
   return (
     <AntHeader style={{ ...headerStyle, backgroundColor }}>

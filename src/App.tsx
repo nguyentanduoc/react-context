@@ -7,15 +7,15 @@ import Main from "./components/layouts/Main";
 import { useState } from "react";
 
 function App() {
-  const [theme, setTheme] = useState("theme1");
+  const [theme] = useState("theme1");
   return (
     <LayoutStyled>
-      <Header theme={theme} onChangeTheme={setTheme} />
+      <Header />
       <Layout>
-        <LeftMenu theme={theme} />
-        <Main theme={theme} />
+        <LeftMenu />
+        <Main />
       </Layout>
-      <Footer theme={theme} />
+      <Footer />
     </LayoutStyled>
   );
 }

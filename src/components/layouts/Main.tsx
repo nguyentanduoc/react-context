@@ -13,13 +13,12 @@ const contentStyle: React.CSSProperties = {
 
 interface MainProps {
   children?: React.ReactNode;
-  theme: string;
 }
-const Main = ({ theme }: MainProps) => {
+const Main = ({}: MainProps) => {
   const items = [{ id: 1 }, { id: 1 }, { id: 1 }, { id: 1 }, { id: 1 }];
   return (
     <Content style={contentStyle}>
-      <Search theme={theme}></Search>
+      <Search></Search>
       <Layout
         style={{
           paddingTop: 10,
@@ -31,7 +30,7 @@ const Main = ({ theme }: MainProps) => {
         <Row gutter={10}>
           {items.map((i, index) => (
             <Col xl={4} key={index}>
-              <Item theme={theme} />
+              <Item />
             </Col>
           ))}
         </Row>

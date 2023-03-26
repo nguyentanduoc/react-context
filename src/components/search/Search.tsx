@@ -1,13 +1,12 @@
 import { Button, Card, Form, Input } from "antd";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ThemeContext } from "../ThemeContext";
 
-interface SearchProps {
-  theme: string;
-}
+interface SearchProps {}
 
 // #00ABBD
 //#E6DFD9
-const Search = ({ theme }: SearchProps) => {
+const Search = ({}: SearchProps) => {
   const [form] = Form.useForm();
   const [, forceUpdate] = useState({});
 
@@ -19,6 +18,7 @@ const Search = ({ theme }: SearchProps) => {
   const onFinish = (values: any) => {
     console.log("Finish:", values);
   };
+  const { theme } = useContext(ThemeContext);
   const backgroundColor = theme === "theme1" ? "#00ABBD" : "#E6DFD9";
   return (
     <Card style={{ margin: 0, padding: 0, backgroundColor }}>
